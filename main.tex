@@ -1,0 +1,218 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontawesome5}
+% -------------------- Packages --------------------
+\usepackage[utf8]{inputenc}            % UTF-8 support
+\usepackage[T1]{fontenc}               % Better font encoding
+\usepackage{lmodern}                   % Latin Modern fonts
+\usepackage{geometry}                  % Page margins
+\usepackage{hyperref}                  % Clickable links, DOIs, emails
+\usepackage{url}                       % URL formatting
+\usepackage{tabularx}                  % Flexible tables
+\usepackage{array}                     % Advanced table columns
+\usepackage{enumitem}                  % Custom lists
+\usepackage{titlesec}                  % Section styling
+\usepackage{fancyhdr}                  % Header with page numbers
+\usepackage{ragged2e}                  % Justification helpers
+
+% -------------------- Page Setup --------------------
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2cm}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\thepage}                % Page number top left
+\fancyhead[C]{}
+\fancyhead[R]{}
+\renewcommand{\headrulewidth}{0pt}     % No header line
+\setlength{\parindent}{0pt}            % No paragraph indentation
+\setlength{\parskip}{0.5em}            % Space between paragraphs
+
+% -------------------- Custom Commands --------------------
+% Personal details entry (label: value)
+\newcommand{\personaldetail}[2]{\textbf{#1:} & #2 \\[0.2em]}
+
+% Education entry (with graduation cap icon)
+\newcommand{\cvedu}[4]{%
+  \noindent
+  \faIcon{graduation-cap} \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3}, #4 \par
+  \vspace{0.3em}
+}
+
+% Experience entry (with briefcase icon)
+\newcommand{\cvrole}[4]{%
+  \noindent
+  \faIcon{briefcase} \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3}, #4 \par
+  \vspace{0.3em}
+}
+
+% Master's Thesis entry (with book icon)
+\newcommand{\cvthesis}[1]{%
+  \noindent
+  \faIcon{book-open} \textbf{Title:} #1 \par
+  \vspace{0.3em}
+}
+
+% Section styling (bold, large, with a horizontal line – no uppercase, so icons work)
+\titleformat{\section}
+  {\large\bfseries}
+  {}{0em}{}
+  [\titlerule]
+\titlespacing{\section}{0pt}{2ex}{1ex}
+
+% Subsubsection styling for skills categories
+\newcommand{\skillsheading}[1]{\textbf{#1:}\ }
+
+% -------------------- Document Start --------------------
+\begin{document}
+
+% ----- Header -----
+\begin{center}
+  {\LARGE \textbf{\faIcon{user} Haftamu Kebede}} \\[0.3em]
+  {\large Curriculum Vitae}
+\end{center}
+
+\vspace{1em}
+
+% ----- Personal Details -----
+\section*{\faIcon{id-card} Personal Details}
+
+\renewcommand{\arraystretch}{1.4} % Adds space for icons
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+    \faIcon{user} \textbf{Name} & Haftamu Kebede Yigzaw \\
+    \faIcon{calendar-alt} \textbf{Date of Birth} & 02/03/1988 \\
+    \faIcon{mars} \textbf{Gender} & Male \\
+    \faIcon{heart} \textbf{Marital Status} & Married \\
+    \faIcon{language} \textbf{Languages} &
+      \begin{tabular}[t]{@{} l @{}}
+        Tigrigna: Mother tongue \\
+        Amharic: Fluent (Reading, Writing, Speaking, Listening) \\
+        English: Fluent (Reading, Writing, Speaking, Listening)
+      \end{tabular} \\
+    \faIcon{address-card} \textbf{Contact} &
+      \begin{tabular}[t]{@{} l @{}}
+        \faIcon{envelope} \href{mailto:haftamu.k@gmail.com}{haftamu.k@gmail.com} \\
+        \faIcon{phone-alt} +251921022108 \\
+        \faIcon{github} \href{https://github.com/haftamuk}{github.com/haftamuk} \\
+        \faIcon{linkedin} \href{https://www.linkedin.com/in/hkebede/}{linkedin.com/in/hkebede} \\
+        \faIcon{twitter} \href{https://x.com/mach\_Haftsh}{x.com/mach\_Haftsh} \\
+        \faIcon{skype} haftsh4
+      \end{tabular} \\
+\end{tabularx}
+
+% ----- Education -----
+\section*{\faIcon{graduation-cap} Education}
+\cvedu{2016--2017}{Master of Science in Information Technology}{Jimma University}{Jimma}
+\cvedu{2008--2012}{Bachelor of Science in Computer Science}{Jimma University}{Jimma}
+
+% ----- Master's Thesis -----
+\section*{\faIcon{book-open} Master's Thesis}
+\cvthesis{Index Based Full Text Search Support for Semantic Web Based on Hadoop}
+
+% ----- Experience -----
+\section*{\faIcon{briefcase} Experience}
+
+% ---- JIMMA UNIVERSITY ----
+\vspace{0.3em}
+\noindent
+\textbf{\large \faIcon{university} Jimma University} \hfill \textit{Jimma} \\
+\rule{\textwidth}{0.4pt}
+\vspace{0.2em}
+
+\begin{tabularx}{\textwidth}{@{} >{\raggedleft\arraybackslash}p{2.6cm} X @{}}
+  2012--2016 & \textbf{Application Developer} \\
+              & ICT Development Office \\[0.3em]
+  2012--2016 & \textbf{Jimma University IBM Academy Coordinator} \\
+              & ICT Development Office \\[0.3em]
+  2017--2018 & \textbf{Application Development Team Leader} \\
+              & ICT Development Office \\
+\end{tabularx}
+
+\vspace{0.8em}
+% ---- MEKELLE UNIVERSITY ----
+\noindent
+\textbf{\large \faIcon{university} Mekelle University} \hfill \textit{Mekelle} \\
+\rule{\textwidth}{0.4pt}
+\vspace{0.2em}
+
+\begin{tabularx}{\textwidth}{@{} >{\raggedleft\arraybackslash}p{2.6cm} X @{}}
+  2019--Present & \textbf{Lecturer, Software Engineering Chair} \\
+                 & EITM, School of Computing \\
+                 & \textit{Courses: Software Engineering Tools and Practices, Software Quality Assurance and Testing, Data Structure and Algorithms} \\[0.3em]
+  2019--Present & \textbf{Researcher} \\
+                 & Digital Health Research and Development Center \\[0.3em]
+  2021--2025    & \textbf{ICT Services Team Leader} \\
+                 & College of Health Sciences Ayder C.S. Hospital \\
+\end{tabularx}
+
+\vspace{0.8em}
+% ---- OTHER ENGAGEMENTS ----
+\noindent
+\textbf{\large \faIcon{building} Other Engagements} \\
+\rule{\textwidth}{0.4pt}
+\vspace{0.2em}
+
+\begin{tabularx}{\textwidth}{@{} >{\raggedleft\arraybackslash}p{2.6cm} X @{}}
+  March 2020 -- June 2020 & \textbf{Consultant} \\
+                           & JSI R\&T / Data Use Partnership (DUP) -- Ethiopia \\[0.3em]
+  2023--Present & \textbf{Open Source Contributer} \\
+                  & Traccar -- GPS Tracking System \\[0.3em]
+  2024--Present & \textbf{Open Source Contributer} \\
+                  & Open edX -- Learning Management System \\[0.3em]
+  2024--Present & \textbf{Open edX Developer} \\
+                  & Ministry of Education, Addis Ababa \\
+\end{tabularx}
+
+% ----- Trainings and Conferences -----
+\section*{\faIcon{globe-africa} Trainings and Conferences}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+  \item \faIcon{map-marker-alt} \textbf{Salt Lake City, Utah} Open edX Conference 2026 - Speaker \href{https://openedx.org/blog/join-us-for-the-open-edx-conference-2026/?_gl=1*4u9tpp*_gcl_au*MTcyOTQ0MjczOC4xNzgxMDk3NTY0*_ga*MTAyNjA5NzU2MS4xNzU2OTcxMjAz*_ga_PZSNQXMM2N*czE3ODE2MTU5NDYkbzI3JGcxJHQxNzgxNjE3NjI3JGo2MCRsMCRoMA..}{\faIcon{external-link-alt} Click here to verify}
+  \item \faIcon{map-marker-alt} \textbf{Lilongwe, Malawi} The 2023 OpenHIE Community Meeting \href{https://ohie.org/ohie23/}{\faIcon{external-link-alt} Click here to verify}
+  \item \faIcon{map-marker-alt} \textbf{Stockholm, Sweden}: URKUND (now known as Ouriginal) - Advanced Plagiarism Detection Automation System Training
+  \item \faIcon{map-marker-alt} \textbf{Ghent University, Ghent, Belgium}: User management system development and advanced linux training
+  \item \faIcon{users} \textbf{Global Open Community Recognition:} 
+  Volunteerism and the Day‑To‑Day: From the Perspective of an OpenHIE Community Member
+  \href{https://ohie.org/balancing-volunteerism-and-the-day-to-day-from-the-perspective-of-an-openhie-community-member/}{https://ohie.org/balancing-volunteerism-and-the-day-to-day-from-the-perspective-of-an-openhie-community-member/}
+\end{itemize}
+
+% ----- Certifications -----
+\section*{\faIcon{certificate} Certifications}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+  \item \faIcon{check-circle} 2025 MC101 - Master Class: Foundations for Excellence in Teaching
+  \item \faIcon{check-circle} 2018 Linux Essentials Certified \href{https://cs.lpi.org/caf/Xamman/certification/verify/LPI000399745/83dqrg3zhh}{\faIcon{external-link-alt} Click here to Verify}
+  \item \faIcon{check-circle} 2016 Mobile Application Developer - Mastery Award for Educators 2016 \href{https://www.credly.com/badges/8da480bb-7feb-4a3a-8ea1-8441ff361ce0/facebook?fbclid=IwAR1Klzr9AyTlkKR6p_g4UsQrXewCazabSdmG6XzWmzS43nvlcWtv2i4a9ZA}{\faIcon{external-link-alt} Click here to Verify}
+  \item \faIcon{check-circle} 2016 Mobile Application Administrator - Mastery Award for Educators 2016 \href{https://www.credly.com/badges/d485df4f-15d3-495e-b35c-865173dbd0d5/facebook?fbclid=IwAR0n1puJKGQZFGzyjBZoapOgfqtdhPwkm9fEaIlyvraHZFXWgrpywpAOA54}{\faIcon{external-link-alt} Click here to Verify}
+  \item \faIcon{check-circle} 2016 Mobile Application Developer - Explorer Award for Educators 2016 \href{https://www.credly.com/badges/e77e1135-2389-4fa8-bd6b-01646fbbfdf4/facebook?fbclid=IwAR3sabR8gXHcXVaoS6ssTBjb7lAGt9eqo-hkmjWSib4aNYuxZHeh_1eUA3Y}{\faIcon{external-link-alt} Click here to Verify}
+  \item \faIcon{check-circle} 2016 Application Security Analyst - Explorer Award for Educators 2016 \href{https://www.credly.com/badges/069d74a0-24eb-4b18-8f2e-a93dbd4b903e/facebook?fbclid=IwAR2mIeao3Ogy5071ANBK_b52upH6AQArYVtmMOffENm_6QjVcHNTJHvdNMY}{\faIcon{external-link-alt} Click here to Verify}
+  \item \faIcon{check-circle} 2016 Big Data Developer - Explorer Award for Educators 2016 \href{https://www.credly.com/badges/4fc05882-a629-498d-931c-9841ff8d8d26/facebook?fbclid=IwAR3fWlgpPKxiIvnZUqCqj_o0Wb9zoZj6ZmcEBK_1RKdnJMPVXbr9_bHrO3A}{\faIcon{external-link-alt} Click here to Verify}
+  \item \faIcon{check-circle} 2016 Mobile Application Administrator - Explorer Award for Educators 2016 \href{https://www.credly.com/badges/c6a3b02f-a5c8-4fb0-bce1-16f299ea6c15/facebook?fbclid=IwAR3AxESJzG5Nt0Q5d8TAOpzUMFJEvVUhAo4mvk0q0h8SCk_pKr2cSZ4eU_8}{\faIcon{external-link-alt} Click here to Verify}
+  \item \faIcon{check-circle} 2016 Big Data Developer - Mastery Award for Educators 2016 \href{https://www.credly.com/badges/a7a27275-c356-48f8-85bf-e72881371430/facebook?fbclid=IwAR2-_Mg6zXyOsJOYBUCEnE6DeLJr02poAcEWTdzHP18WEz19MTpyWW3Qmb0}{\faIcon{external-link-alt} Click here to Verify}
+\end{itemize}
+
+% ----- Technical Skills -----
+\section*{\faIcon{code} Technical Skills}
+\begin{itemize}
+  \item \faIcon{code} \skillsheading{Programming} PYTHON, JAVA, C++, PHP, JAVASCRIPT, HTML
+  \item \faIcon{cogs} \skillsheading{Frameworks and Development Tools} NODEJS, REACTJS, REACTNATIVE, SYMFONY, JQUERY, BOOTSTRAP, IBM WORKLIGHT FOR ANDROID, GIT, ECLIPSE, NETBEANS
+  \item \faIcon{server} \skillsheading{System Administration} LINUX, Postfix, Horde, OpenLDAP, Apache2, Mysql, Hadoop
+  \item \faIcon{chart-bar} \skillsheading{Data Analytics} IBM BigInsights, SPSS, R, ODK, RedCap
+  \item \faIcon{file-alt} \skillsheading{Documentation tools} DokuWiki, \LaTeX
+\end{itemize}
+
+% ----- Publications -----
+\section*{\faIcon{book} Publications}
+\faIcon{book} Kebede, H., Gebremeskel, T., \& Shivers, J. (2022). eHealth Architecture-based Health Data Exchange: Ethiopia DHIS2 and SmartCare. \textit{Journal of Health Informatics in Africa}, 8(1), 9--18. \\
+\url{https://doi.org/10.12856/JHIA-2021-v8-i1-330}
+
+\faIcon{book} Woldegebriel, A., Gebrehiwot, G., Teka, A., Gebreyesus, H., Weldeslassie, T., Desta, A., Yigzaw, H., Bezabih, N., Baryau, H., Haileselassie, M., \& Gebregziabiher, M. (2024). High manifestations of food insecurity and hunger among pregnant and lactating women during post-conflict in Tigray, Ethiopia: a community-based study. \textit{BMC Pregnancy and Childbirth}, 24(1), 385. \\
+\url{https://doi.org/10.1186/s12884-024-06550-8}
+
+% ----- Miscellaneous -----
+\section*{\faIcon{ellipsis-h} Miscellaneous}
+\begin{itemize}
+  \item \faIcon{external-link-alt} \textbf{Advocacy Efforts:} OpenHIE Implementers Network Call I \\
+    \url{https://iu.mediaspace.kaltura.com/media/t/1_b48qj91t?st=884}
+  \item \faIcon{external-link-alt} \textbf{Global Digital Health Week:} Host \\
+    \url{https://drive.google.com/file/d/1bCE5l0bnmkWMABrE7kzp1G-RjQ4BSO3B/preview}
+\end{itemize}
+
+\end{document}
