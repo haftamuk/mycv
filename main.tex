@@ -13,9 +13,15 @@
 \usepackage{titlesec}                  % Section styling
 \usepackage{fancyhdr}                  % Header with page numbers
 \usepackage{ragged2e}                  % Justification helpers
+\usepackage{graphicx}                  % For including images
+\usepackage{xcolor}                    % For color accents
+
+% -------------------- Color Definitions --------------------
+\definecolor{cvblue}{RGB}{0, 51, 102}
+\definecolor{cvgray}{RGB}{80, 80, 80}
 
 % -------------------- Page Setup --------------------
-\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2cm}
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\thepage}                % Page number top left
@@ -25,147 +31,122 @@
 \setlength{\parindent}{0pt}            % No paragraph indentation
 \setlength{\parskip}{0.5em}            % Space between paragraphs
 
-% -------------------- Custom Commands --------------------
-% Personal details entry (label: value)
-\newcommand{\personaldetail}[2]{\textbf{#1:} & #2 \\[0.2em]}
-
-% Education entry (with graduation cap icon)
-\newcommand{\cvedu}[4]{%
-  \noindent
-  \faIcon{graduation-cap} \textbf{#1} \hfill \textbf{#2} \\
-  \textit{#3}, #4 \par
-  \vspace{0.3em}
-}
-
-% Experience entry (with briefcase icon)
-\newcommand{\cvrole}[4]{%
-  \noindent
-  \faIcon{briefcase} \textbf{#1} \hfill \textbf{#2} \\
-  \textit{#3}, #4 \par
-  \vspace{0.3em}
-}
-
-% Master's Thesis entry (with book icon)
-\newcommand{\cvthesis}[1]{%
-  \noindent
-  \faIcon{book-open} \textbf{Title:} #1 \par
-  \vspace{0.3em}
-}
-
-% Section styling (bold, large, with a horizontal line – no uppercase, so icons work)
+% -------------------- Section Styling --------------------
 \titleformat{\section}
-  {\large\bfseries}
+  {\large\bfseries\color{cvblue}}
   {}{0em}{}
-  [\titlerule]
-\titlespacing{\section}{0pt}{2ex}{1ex}
+  [\vspace{0.1em}\textcolor{cvblue}{\rule{\textwidth}{1pt}}]
+\titlespacing{\section}{0pt}{1.5ex}{1ex}
 
-% Subsubsection styling for skills categories
-\newcommand{\skillsheading}[1]{\textbf{#1:}\ }
+% Custom command for experience/education item headers
+\newcommand{\cventry}[4]{
+    \noindent \textbf{#1} \hfill \textbf{#2} \\
+    \textit{#3} \hfill \textit{#4} \vspace{0.2em}
+}
 
 % -------------------- Document Start --------------------
 \begin{document}
 
 % ----- Header -----
-\begin{center}
-  {\LARGE \textbf{\faIcon{user} Haftamu Kebede}} \\[0.3em]
-  {\large Curriculum Vitae}
-\end{center}
+\begin{minipage}[c]{0.7\textwidth}
+  {\Huge \textbf{\textcolor{cvblue}{Haftamu Kebede Yigzaw}}}\\[0.4em]
+  {\Large \textcolor{cvgray}{Software Engineer | EdTech Enthusiast}}\\[0.8em]
+  \faIcon{envelope} \href{mailto:haftamu.k@gmail.com}{haftamu.k@gmail.com} \quad
+  \faIcon{phone-alt} +251921022108 \\
+  \faIcon{github} \href{https://github.com/haftamuk}{haftamuk} \quad
+  \faIcon{linkedin} \href{https://www.linkedin.com/in/hkebede/}{hkebede} \quad
+  \faIcon{twitter} \href{https://x.com/mach\_Haftsh}{@mach\_Haftsh} \quad
+  \faIcon{skype} haftsh4
+\end{minipage}%
+\begin{minipage}[c]{0.3\textwidth}
+  \begin{flushright}
+    % Make sure profile.jpg is in the same directory
+    \includegraphics[width=0.75\linewidth]{profile.jpg} 
+  \end{flushright}
+\end{minipage}
 
 \vspace{1em}
 
 % ----- Personal Details -----
 \section*{\faIcon{id-card} Personal Details}
 
-\renewcommand{\arraystretch}{1.4} % Adds space for icons
-\begin{tabularx}{\textwidth}{@{} l X @{}}
-    \faIcon{user} \textbf{Name} & Haftamu Kebede Yigzaw \\
-    \faIcon{calendar-alt} \textbf{Date of Birth} & 02/03/1988 \\
-    \faIcon{mars} \textbf{Gender} & Male \\
-    \faIcon{heart} \textbf{Marital Status} & Married \\
-    \faIcon{language} \textbf{Languages} &
-      \begin{tabular}[t]{@{} l @{}}
-        Tigrigna: Mother tongue \\
-        Amharic: Fluent (Reading, Writing, Speaking, Listening) \\
-        English: Fluent (Reading, Writing, Speaking, Listening)
-      \end{tabular} \\
-    \faIcon{address-card} \textbf{Contact} &
-      \begin{tabular}[t]{@{} l @{}}
-        \faIcon{envelope} \href{mailto:haftamu.k@gmail.com}{haftamu.k@gmail.com} \\
-        \faIcon{phone-alt} +251921022108 \\
-        \faIcon{github} \href{https://github.com/haftamuk}{github.com/haftamuk} \\
-        \faIcon{linkedin} \href{https://www.linkedin.com/in/hkebede/}{linkedin.com/in/hkebede} \\
-        \faIcon{twitter} \href{https://x.com/mach\_Haftsh}{x.com/mach\_Haftsh} \\
-        \faIcon{skype} haftsh4
-      \end{tabular} \\
+\begin{tabularx}{\textwidth}{@{} l X l X @{}}
+    \textbf{Date of Birth} & 02/03/1988 & \textbf{Gender} & Male \\
+    \textbf{Marital Status} & Married & \textbf{Nationality} & Ethiopian \\
 \end{tabularx}
+
+\vspace{0.3em}
+\textbf{Languages:} Tigrigna (Mother tongue), Amharic (Fluent), English (Fluent)
 
 % ----- Education -----
 \section*{\faIcon{graduation-cap} Education}
-\cvedu{2016--2017}{Master of Science in Information Technology}{Jimma University}{Jimma}
-\cvedu{2008--2012}{Bachelor of Science in Computer Science}{Jimma University}{Jimma}
+\cventry{Master of Science in Information Technology}{2016 -- 2017}{Jimma University}{Jimma, Ethiopia}
+\cventry{Bachelor of Science in Computer Science}{2008 -- 2012}{Jimma University}{Jimma, Ethiopia}
 
 % ----- Master's Thesis -----
 \section*{\faIcon{book-open} Master's Thesis}
-\cvthesis{Index Based Full Text Search Support for Semantic Web Based on Hadoop}
+\textbf{Title:} Index Based Full Text Search Support for Semantic Web Based on Hadoop
 
 % ----- Experience -----
 \section*{\faIcon{briefcase} Experience}
 
 % ---- JIMMA UNIVERSITY ----
+\noindent \textbf{\Large Jimma University} \hfill \textit{Jimma, Ethiopia}
 \vspace{0.3em}
-\noindent
-\textbf{\large \faIcon{university} Jimma University} \hfill \textit{Jimma} \\
-\rule{\textwidth}{0.4pt}
-\vspace{0.2em}
 
-\begin{tabularx}{\textwidth}{@{} >{\raggedleft\arraybackslash}p{2.6cm} X @{}}
-  2012--2016 & \textbf{Application Developer} \\
-              & ICT Development Office \\[0.3em]
-  2012--2016 & \textbf{Jimma University IBM Academy Coordinator} \\
-              & ICT Development Office \\[0.3em]
-  2017--2018 & \textbf{Application Development Team Leader} \\
-              & ICT Development Office \\
-\end{tabularx}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+    \item \textbf{Application Development Team Leader} \hfill 2017 -- 2018 \\
+    ICT Development Office
+    \item \textbf{Application Developer} \hfill 2012 -- 2016 \\
+    ICT Development Office
+    \item \textbf{IBM Academy Coordinator} \hfill 2012 -- 2016 \\
+    ICT Development Office
+\end{itemize}
 
 \vspace{0.8em}
+
 % ---- MEKELLE UNIVERSITY ----
-\noindent
-\textbf{\large \faIcon{university} Mekelle University} \hfill \textit{Mekelle} \\
-\rule{\textwidth}{0.4pt}
-\vspace{0.2em}
+\noindent \textbf{\Large Mekelle University} \hfill \textit{Mekelle, Ethiopia}
+\vspace{0.3em}
 
-\begin{tabularx}{\textwidth}{@{} >{\raggedleft\arraybackslash}p{2.6cm} X @{}}
-  2019--Present & \textbf{Lecturer, Software Engineering Chair} \\
-                 & EITM, School of Computing \\
-                 & \textit{Courses: Software Engineering Tools and Practices, Software Quality Assurance and Testing, Data Structure and Algorithms} \\[0.3em]
-  2019--Present & \textbf{Researcher} \\
-                 & Digital Health Research and Development Center \\[0.3em]
-  2021--2025    & \textbf{ICT Services Team Leader} \\
-                 & College of Health Sciences Ayder C.S. Hospital \\
-\end{tabularx}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+    \item \textbf{Review Process Lead, Fully Online MBA Program} \hfill 2024 -- Present \\
+    \textbf{Leading the review process for course materials} of fully online programs, ensuring quality and alignment with e-learning standards.
+    \item \textbf{Lecturer, Software Engineering Chair} \hfill 2019 -- Present \\
+    EITM, School of Computing \\
+    \textit{Courses: Software Engineering Tools and Practices, Software Quality Assurance and Testing, Data Structure and Algorithms}
+    \item \textbf{Researcher} \hfill 2019 -- Present \\
+    Digital Health Research and Development Center
+    \item \textbf{ICT Services Team Leader} \hfill 2021 -- 2025 \\
+    College of Health Sciences Ayder C.S. Hospital
+\end{itemize}
 
 \vspace{0.8em}
-% ---- OTHER ENGAGEMENTS ----
-\noindent
-\textbf{\large \faIcon{building} Other Engagements} \\
-\rule{\textwidth}{0.4pt}
-\vspace{0.2em}
 
-\begin{tabularx}{\textwidth}{@{} >{\raggedleft\arraybackslash}p{2.6cm} X @{}}
-  March 2020 -- June 2020 & \textbf{Consultant} \\
-                           & JSI R\&T / Data Use Partnership (DUP) -- Ethiopia \\[0.3em]
-  2023--Present & \textbf{Open Source Contributer} \\
-                  & Traccar -- GPS Tracking System \\[0.3em]
-  2024--Present & \textbf{Open Source Contributer} \\
-                  & Open edX -- Learning Management System \\[0.3em]
-  2024--Present & \textbf{Open edX Developer} \\
-                  & Ministry of Education, Addis Ababa \\
-\end{tabularx}
+% ---- OTHER ENGAGEMENTS ----
+\noindent \textbf{\Large Other Engagements} \vspace{0.3em}
+
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+    \item \textbf{Open edX Trainer / Facilitator} \hfill Jan 2026 -- Feb 2026 \\
+    ShayaShone PLC (SYS) / e-SHE Program \\
+    Designed and delivered a comprehensive \textbf{developer bootcamp} for Open edX developers, strengthening technical capacity in environment setup, \textbf{bug-fixing lifecycle}, \textbf{Open edX architecture}, \textbf{Tutor-based deployment}, and \textbf{Git/GitHub workflows}.
+    \item \textbf{Open edX Developer} \hfill 2024 -- Present \\
+    Ministry of Education, Addis Ababa \\
+    \textbf{Systems Integration:} Architected and implemented \textbf{multi-channel payment gateway integration} for Open edX to enable \textbf{local currency payments} (local banks and mobile money) in Ethiopia.
+    \item \textbf{Open Source Contributer} \hfill 2024 -- Present \\
+    Open edX -- Learning Management System
+    \item \textbf{Open Source Contributer} \hfill 2023 -- Present \\
+    Traccar -- GPS Tracking System
+    \item \textbf{Consultant} \hfill March 2020 -- June 2020 \\
+    JSI R\&T / Data Use Partnership (DUP) -- Ethiopia
+    \item \textbf{E-Learning Technology Enthusiast} \hfill Present \\
+    Passionate about e-learning technology and web design. Explore my portfolio: \href{https://haftamuk.github.io/WebDesignPortfolio/}{\faIcon{external-link-alt} Click here to Verify}
+\end{itemize}
 
 % ----- Trainings and Conferences -----
 \section*{\faIcon{globe-africa} Trainings and Conferences}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-  \item \faIcon{map-marker-alt} \textbf{Salt Lake City, Utah} Open edX Conference 2026 - Speaker \href{https://openedx.org/blog/join-us-for-the-open-edx-conference-2026/?_gl=1*4u9tpp*_gcl_au*MTcyOTQ0MjczOC4xNzgxMDk3NTY0*_ga*MTAyNjA5NzU2MS4xNzU2OTcxMjAz*_ga_PZSNQXMM2N*czE3ODE2MTU5NDYkbzI3JGcxJHQxNzgxNjE3NjI3JGo2MCRsMCRoMA..}{\faIcon{external-link-alt} Click here to verify}
+  \item \faIcon{map-marker-alt} \textbf{Salt Lake City, Utah} \textbf{Open edX Conference 2026 - Speaker}. Presented innovative idea: \textbf{Integrating multi-channel payment gateway in Open edX - Bridging access through local currency}. \href{https://con.openedx.org/}{\faIcon{external-link-alt} Click here to verify}
   \item \faIcon{map-marker-alt} \textbf{Lilongwe, Malawi} The 2023 OpenHIE Community Meeting \href{https://ohie.org/ohie23/}{\faIcon{external-link-alt} Click here to verify}
   \item \faIcon{map-marker-alt} \textbf{Stockholm, Sweden}: URKUND (now known as Ouriginal) - Advanced Plagiarism Detection Automation System Training
   \item \faIcon{map-marker-alt} \textbf{Ghent University, Ghent, Belgium}: User management system development and advanced linux training
@@ -191,18 +172,21 @@
 % ----- Technical Skills -----
 \section*{\faIcon{code} Technical Skills}
 \begin{itemize}
-  \item \faIcon{code} \skillsheading{Programming} PYTHON, JAVA, C++, PHP, JAVASCRIPT, HTML
-  \item \faIcon{cogs} \skillsheading{Frameworks and Development Tools} NODEJS, REACTJS, REACTNATIVE, SYMFONY, JQUERY, BOOTSTRAP, IBM WORKLIGHT FOR ANDROID, GIT, ECLIPSE, NETBEANS
-  \item \faIcon{server} \skillsheading{System Administration} LINUX, Postfix, Horde, OpenLDAP, Apache2, Mysql, Hadoop
-  \item \faIcon{chart-bar} \skillsheading{Data Analytics} IBM BigInsights, SPSS, R, ODK, RedCap
-  \item \faIcon{file-alt} \skillsheading{Documentation tools} DokuWiki, \LaTeX
+  \item \faIcon{code} \textbf{Programming:} PYTHON, JAVA, C++, PHP, JAVASCRIPT, HTML
+  \item \faIcon{cogs} \textbf{Frameworks and Development Tools:} NODEJS, REACTJS, REACTNATIVE, SYMFONY, JQUERY, BOOTSTRAP, IBM WORKLIGHT FOR ANDROID, GIT, ECLIPSE, NETBEANS
+  \item \faIcon{server} \textbf{System Administration:} LINUX, Postfix, Horde, OpenLDAP, Apache2, Mysql, Hadoop
+  \item \faIcon{plug} \textbf{Systems Integration:} \textbf{API Integration}, \textbf{Payment Gateway Integration}, \textbf{Health Data Exchange}, \textbf{EMR Interoperability}, \textbf{HAPI FHIR}, \textbf{OpenHIM}
+  \item \faIcon{chart-bar} \textbf{Data Analytics:} IBM BigInsights, SPSS, R, ODK, RedCap
+  \item \faIcon{file-alt} \textbf{Documentation tools:} DokuWiki, \LaTeX
+  \item \faIcon{globe} \textbf{E-Learning \& Web Design:} \textbf{Open edX Customization}, \textbf{Instructional Design}, \textbf{Responsive Web Design}, \textbf{UI/UX Principles}
 \end{itemize}
 
 % ----- Publications -----
 \section*{\faIcon{book} Publications}
-\faIcon{book} Kebede, H., Gebremeskel, T., \& Shivers, J. (2022). eHealth Architecture-based Health Data Exchange: Ethiopia DHIS2 and SmartCare. \textit{Journal of Health Informatics in Africa}, 8(1), 9--18. \\
+\faIcon{book} Kebede, H., Gebremeskel, T., \& Shivers, J. (2022). eHealth Architecture-based \textbf{Health Data Exchange}: Ethiopia DHIS2 and SmartCare. \textit{Journal of Health Informatics in Africa}, 8(1), 9--18. \\ Demonstrates \textbf{systems integration} and \textbf{EMR interoperability} using \textbf{HAPI FHIR} and \textbf{OpenHIM}.
 \url{https://doi.org/10.12856/JHIA-2021-v8-i1-330}
 
+\vspace{0.5em}
 \faIcon{book} Woldegebriel, A., Gebrehiwot, G., Teka, A., Gebreyesus, H., Weldeslassie, T., Desta, A., Yigzaw, H., Bezabih, N., Baryau, H., Haileselassie, M., \& Gebregziabiher, M. (2024). High manifestations of food insecurity and hunger among pregnant and lactating women during post-conflict in Tigray, Ethiopia: a community-based study. \textit{BMC Pregnancy and Childbirth}, 24(1), 385. \\
 \url{https://doi.org/10.1186/s12884-024-06550-8}
 
@@ -214,5 +198,28 @@
   \item \faIcon{external-link-alt} \textbf{Global Digital Health Week:} Host \\
     \url{https://drive.google.com/file/d/1bCE5l0bnmkWMABrE7kzp1G-RjQ4BSO3B/preview}
 \end{itemize}
+
+% ----- References -----
+\section*{\faIcon{address-book} References}
+
+\begin{tabularx}{\textwidth}{@{} X X @{}}
+    \textbf{David Okinyi} & \textbf{Dr. Mesfin Eyob} \\
+    \textit{e-SHE Developers Coordinator} & \textit{E-Learning Director} \\
+    EdPlus, Arizona State University. & Mekelle University, Mekelle, Ethiopia \\
+    \faIcon{envelope} \href{mailto:email3@example.com}{email3@example.com} & \faIcon{envelope} \href{mailto:mesfin.eyob@mu.edu.et}{mesfin.eyob@mu.edu.et} \\
+    \faIcon{phone-alt} +254 74 865 4618 & \faIcon{phone-alt} +251 91 472 7244 \\
+    \textbf{Relationship:} Open edX Developers team e-SHE direct supervisor & \textbf{Relationship:} E-Learning Initiatives Lead  \\
+
+
+    \textbf{Dr. Fana Hagos} &  \\
+    \textit{University President} &  \\
+    Mekelle University, Mekelle, Ethiopia &  \\
+    \faIcon{envelope} \href{mailto:fana.hagos@mu.edu.et}{fana.hagos@mu.edu.et} &  \\
+    \faIcon{phone-alt} +251 91 128 5461 &  \\
+    \textbf{Relationship:} MBA Program Course Material Development Direct Supervisor &  \\[1.2em]
+
+
+  \end{tabularx}
+
 
 \end{document}
